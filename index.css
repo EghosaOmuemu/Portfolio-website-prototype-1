@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
+*{box-sizing: border-box;}
+
+body{
+    margin: 0;
+    font-family: 'Major Mono Display', monospace;
+    overflow: hidden;
+}
+
+.primary-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0, 0.5rem;
+    align-items: center;
+    margin: 0 1rem;
+}
+
+.navToggle{
+    display: none;
+}
+
+.navBar{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 40rem) {
+    .navBar{
+        position: fixed;
+        inset: 0 0 0 20%;
+        background-color: hsla(0, 0%, 75%, 0.75);
+        z-index: 1000;
+        flex-direction: column;
+        text-align: center;
+        padding: min(15vh, 6rem) .5em;
+        row-gap: 3em;
+    }
+
+    @supports (backdrop-filter: blur(0.2rem)){
+        .navBar{
+            background-color: hsla(0, 0%, 0%, 0.1);
+            backdrop-filter: blur(0.2rem);
+        }
+    }
+
+    .navToggle{
+        display: block;
+        position: absolute;
+        color: hsla(0, 0%, 0%, 0);
+        background-image: url(./assets/svgs/hamburger-menu-top-and-bottom-lines-broken.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: hsla(0, 0%, 0%, 0);
+        border: 0;
+        top: 1rem;
+        right: 2rem;
+        z-index: 9999;
+        aspect-ratio: 1; 
+    }
+}
+
+
+
+/* .navBar li{
+    padding: 2rem 1rem;
+}
+
+.navBar li:hover{
+    background-color: black;
+    transition: .5s;
+} */
+
+.navBar li a{
+    color: black;
+    text-decoration: none;
+    padding: 1rem;
+}
+
+.navBar li a:hover{
+    color: white;
+    background-color: black;
+    transition: .5s;
+}
