@@ -16,11 +16,11 @@ body{
     margin: 0 1rem;
 }
 
-.navToggle{
+#navToggle{
     display: none;
 }
 
-.navBar{
+#navBar{
     display: flex;
     list-style: none;
     padding: 0;
@@ -28,7 +28,7 @@ body{
 }
 
 @media (max-width: 40rem) {
-    .navBar{
+    #navBar{
         position: fixed;
         inset: 0 0 0 20%;
         background-color: hsla(0, 0%, 75%, 0.75);
@@ -37,16 +37,18 @@ body{
         text-align: center;
         padding: min(15vh, 6rem) .5em;
         row-gap: 3em;
+        transform: translateX(100%);
+        transition: .4s ease-out;
     }
 
     @supports (backdrop-filter: blur(0.2rem)){
-        .navBar{
+        #navBar{
             background-color: hsla(0, 0%, 0%, 0.1);
             backdrop-filter: blur(0.2rem);
         }
     }
 
-    .navToggle{
+    #navToggle{
         display: block;
         position: absolute;
         color: hsla(0, 0%, 0%, 0);
@@ -60,27 +62,25 @@ body{
         z-index: 9999;
         aspect-ratio: 1; 
     }
+
+    /* #navToggle:hover{
+        background-color: hsla(0, 0%, 75%, 0.75);
+    } */
 }
 
-
-
-/* .navBar li{
-    padding: 2rem 1rem;
-}
-
-.navBar li:hover{
-    background-color: black;
-    transition: .5s;
-} */
-
-.navBar li a{
+#navBar li a{
     color: black;
     text-decoration: none;
     padding: 1rem;
 }
 
-.navBar li a:hover{
+#navBar li a:hover{
     color: white;
     background-color: black;
     transition: .5s;
+}
+
+#navBar[data-visible="true"]{
+    transform: translateX(0%);
+    transition: .4s ease-out;
 }
